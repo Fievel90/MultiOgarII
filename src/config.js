@@ -40,7 +40,7 @@ module.exports = Object.seal({
     "serverTimeout": 300,
     "serverWsModule": "ws",
     "serverMaxConnections": 500,
-    "serverPort": 5000,
+    "serverPort": process.env.PORT,
     "serverBind": "0.0.0.0",
     "serverTracker": 0,
     "serverGamemode": 0,
