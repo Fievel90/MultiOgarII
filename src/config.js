@@ -18,8 +18,8 @@ module.exports = Object.seal({
 // [LOGGING]
 // logVerbosity: Console log level (0=NONE// 1=FATAL// 2=ERROR// 3=WARN// 4=INFO// 5=DEBUG)
 // logFileVerbosity: File log level
-"logVerbosity": 4,
-"logFileVerbosity": 5,
+    "logVerbosity": 4,
+    "logFileVerbosity": 5,
 
 // [SERVER]
 // serverTimeout: Seconds to keep connection alive for non-responding client
@@ -37,22 +37,23 @@ module.exports = Object.seal({
 // mobilePhysics: Whether or not the server uses mobile agar.io physics
 // badWordFilter: Toggle whether you enable bad word filter (set to 0 to disable)
 // serverRestart: Toggle whether you want your server to auto-restart in minutes. (set to 0 to disable)
-"serverTimeout": 300,
-"serverMaxConnections": 500,
-"serverPort": process.env.PORT || 8080,
-"serverBind": "0.0.0.0",
-"serverTracker": 0,
-"serverGamemode": 0,
-"serverBots": 0,
-"serverViewBaseX": 1920,
-"serverViewBaseY": 1080,
-"serverMinScale": 0.15,
-"serverSpectatorScale": 0.4,
-"serverStatsPort": 88,
-"serverStatsUpdate": 60,
-"mobilePhysics": 0,
-"badWordFilter": 1,
-"serverRestart": 0,
+    "serverTimeout": 300,
+    "serverWsModule": "ws",
+    "serverMaxConnections": 500,
+    "serverPort": 5000,
+    "serverBind": "0.0.0.0",
+    "serverTracker": 0,
+    "serverGamemode": 0,
+    "serverBots": 0,
+    "serverViewBaseX": 2000,
+    "serverViewBaseY": 2000,
+    "serverMinScale": 0.2,
+    "serverSpectatorScale": 0.1,
+    "serverStatsPort": 1110,
+    "serverStatsUpdate": 60,
+    "mobilePhysics": 0,
+    "badWordFilter": 1,
+    "serverRestart": 0,
 
 // [CLIENT]
 // serverMaxLB: Controls the maximum players displayed on the leaderboard.
@@ -62,14 +63,14 @@ module.exports = Object.seal({
 // serverWelcome1: First server welcome message
 // serverWelcome2: Second server welcome message (optional, for info, etc)
 // clientBind: Only allow connections to the server from specified client (eg: http://agar.io - http://mywebsite.com - http://more.com) [Use ' - ' to seperate different websites]
-"serverMaxLB": 10,
-"serverChat": 1,
-"serverChatAscii": 1,
-"separateChatForTeams": 0,
-"serverName": "MultiOgarII #1",
-"serverWelcome1": "Welcome to MultiOgarII!",
-"serverWelcome2": "",
-"clientBind": "",
+    "serverMaxLB": 15,
+    "serverChat": 0,
+    "serverChatAscii": 1,
+    "separateChatForTeams": 0,
+    "serverName": "MultiOgarII #1",
+    "serverWelcome1": "Welcome to MultiOgarII!",
+    "serverWelcome2": "",
+    "clientBind": "",
 
 // [ANTI-BOT]
 // serverIpLimit: Controls the maximum number of connections from the same IP (0 for no limit)
@@ -78,27 +79,31 @@ module.exports = Object.seal({
 // serverMinionInterval: minion detection interval [milliseconds]
 // serverScrambleLevel: Toggles scrambling of coordinates. 0: No scrambling, 1: lightweight scrambling. 2: full scrambling (also known as scramble minimap), 3 - high level scrambling (no border)
 // playerBotGrow: Cells greater than 625 mass cannot grow from players under 17 mass (set to 1 to disable)
-"serverIpLimit": 4,
-"serverMinionIgnoreTime": 30,
-"serverMinionThreshold": 10,
-"serverMinionInterval": 1000,
-"serverScrambleLevel": 0,
-"playerBotGrow": 0,
+    "serverIpLimit": 10,
+    "serverMinionIgnoreTime": 30,
+    "serverMinionThreshold": 10,
+    "serverMinionInterval": 1000,
+    "serverScrambleLevel": 0,
+    "playerBotGrow": 0,
 
 // [BORDER]
 // Border size (vanilla 14142.135623730952)
-"borderWidth": 14142.135623730952,
-"borderHeight": 14142.135623730952,
+    "borderWidth": 14142.135623730952,
+    "borderHeight": 14142.135623730952,
 
 // [FOOD]
 // foodMinSize: vanilla 10 (mass: 10*10/100: 1 mass)
 // foodMaxSize: vanilla 20 (mass: 20*20/100: 4 mass)
 // foodAmount: The number of food to spawn
 // foodMassGrow: Enable food mass grow ?
-"foodMinSize": 10,
-"foodMaxSize": 20,
-"foodAmount": 700,
-"foodMassGrow": 1,
+    "foodMinSize": 10,
+    "foodMaxSize": 20,
+    "foodAmount": 700,
+    "foodMinAmount": 1000,
+    "foodMaxAmount": 200000000000,
+    "foodMassGrow": 1,
+    "foodSpawnAmount": 30,
+    "spawnInterval": 100,
 
 // [VIRUSES]
 // virusMinSize: Minimum virus size. (vanilla: mass: val*val/100: 100 mass)
@@ -110,15 +115,16 @@ module.exports = Object.seal({
 // motherCellMaxMass: Maximum amount of mass a mothercell is allowed to have (0 for no limit)
 // virusVelocity: Velocity of moving viruses (speed and distance)
 // virusMaxCells: Maximum cells a player is allowed to have from virus splits (0 for playerMaxCells)
-"virusMinSize": 100,
-"virusMaxSize": 141.421356237,
-"virusMaxPoppedSize": 60,
-"virusEqualPopSize": 0,
-"virusAmount": 50,
-"virusMaxAmount": 100,
-"motherCellMaxMass": 0,
-"virusVelocity": 780,
-"virusMaxCells": 0,
+    "virusMinSize": 100,
+    "virusMaxSize": 141.421356237,
+    "virusMaxPoppedSize": 60,
+    "virusEqualPopSize": 0,
+    "virusAmount": 50,
+    "virusMinAmount": 50,
+    "virusMaxAmount": 100,
+    "motherCellMaxMass": 0,
+    "virusVelocity": 780,
+    "virusMaxCells": 0,
 
 // [EJECTED MASS]
 // ejectSize: vanilla: mass: val*val/100: 13 mass?
@@ -127,12 +133,12 @@ module.exports = Object.seal({
 // ejectSpawnPercent: Chance for a player to spawn from ejected mass. 0.5: 50% (set to 0 to disable)
 // ejectVirus: Whether or not players can eject viruses instead of mass
 // ejectVelocity: Velocity of ejecting cells (speed and distance)
-"ejectSize": 36.06,
-"ejectSizeLoss": 42.43,
-"ejectCooldown": 3,
-"ejectSpawnPercent": 0.5,
-"ejectVirus": 0,
-"ejectVelocity": 780,
+    "ejectSize": 36.06,
+    "ejectSizeLoss": 42.43,
+    "ejectCooldown": 3,
+    "ejectSpawnPercent": 0.5,
+    "ejectVirus": 0,
+    "ejectVelocity": 780,
 
 // [PLAYERS]
 // Reminder: MultiOgarII uses cell size instead of mass!
@@ -150,19 +156,19 @@ module.exports = Object.seal({
 // playerDecayCap: Maximum mass a cell can have before it's decayrate multiplies by 10. (0 to disable)
 // playerDisconnectTime: Time in seconds before a disconnected player's cell is removed from the server (Set to -1 to never remove)
 // splitVelocity: Velocity of splitting playercells (speed and distance)
-"playerMinSize": 31.6227766017,
-"playerMaxSize": 1500,
-"playerMinSplitSize": 59.16079783,
-"playerMinEjectSize": 59.16079783,
-"playerStartSize": 31.6227766017,
-"playerMaxCells": 16,
-"playerSpeed": 1,
-"playerDecayRate": 0.002,
-"playerDecayCap": 0,
-"playerRecombineTime": 30,
-"playerMaxNickLength": 15,
-"playerDisconnectTime": -1,
-"splitVelocity": 780,
+    "playerMinSize": 31.6227766017,
+    "playerMaxSize": 1500,
+    "playerMinSplitSize": 59.16079783,
+    "playerMinEjectSize": 59.16079783,
+    "playerStartSize": 31.6227766017,
+    "playerMaxCells": 16,
+    "playerSpeed": 1,
+    "playerDecayRate": 0.002,
+    "playerDecayCap": 0,
+    "playerRecombineTime": 30,
+    "playerMaxNickLength": 15,
+    "playerDisconnectTime": -1,
+    "splitVelocity": 780,
 
 // [MINIONS]
 // Custom minion settings
@@ -172,14 +178,24 @@ module.exports = Object.seal({
 // serverMinions: Amount of minions each player gets once they spawn
 // defaultName: Default name for all minions if name is not specified using command (put <r> before the name for random skins!)
 // minionsOnLeaderboard: Whether or not to show minions on the leaderboard. (Set 0 to disable)
-"minionStartSize": 31.6227766017,
-"minionMaxStartSize": 31.6227766017,
-"minionCollideTeam": 0,
-"serverMinions": 0,
-"defaultName": "minion",
-"minionsOnLeaderboard": 0,
+    "minionStartSize": 31.6227766017,
+    "minionMaxStartSize": 31.6227766017,
+    "minionCollideTeam": 0,
+    "disableERTP": 0,
+    "disableQ": 0,
+    "serverMinions": 0,
+    "collectPellets": 1,
+    "defaultName": "minion",
+    "minionsOnLeaderboard": 0,
 
 // [Gamemode]
 // Custom gamemode settings
+    "tourneyMaxPlayers": 12,
+    "tourneyPrepTime": 10,
+    "tourneyEndTime": 30,
+    "tourneyTimeLimit": 20,
+    "tourneyAutoFill": 0,
+    "tourneyAutoFillPlayers": 1,
+    "tourneyLeaderboardToggleTime": 0,
 
 })
